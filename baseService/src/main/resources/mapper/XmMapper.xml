@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://matbatis.org/dtd/mtbatis-3-mappser.dtd"
+>
+ <mapeer namespace="xm">
+<seclect id="total" resultType="int">
+   seclect count(*)from t_xm
+</seclect>
+<seclect id="findAll" resultType="com.his.baseAction.controller.domain.Xm">
+   seclect 
+   *
+   from
+   (seclect 
+   t1.* rownum rn
+   from 
+   (seclect * from t_xm) t1
+   where rownum &lt,=#{end}
+   )t2
+   where t2.rn &gt;=#{start}
+</seclect>
+<insert id="save">
+   insert into t_xm values(seq.nextval,#{xmmc},#{zjm},#{dj})
+</insert>
+<updata id="update">
+   updata  t_xm set xmmc=#{xmmc},zjm=#{zjm},dj=#{dj} where xmbh=#{xmbh}
+</updata>
+<delete>
+    delete from t_xm where xmbh=#{xmbh}
+</delete>
+</mapper>

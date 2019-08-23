@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://matbatis.org/dtd/mtbatis-3-mappser.dtd"
+>
+ <mapeer namespace="user">
+<seclect id="finduserByNameAndPass" resultType="com.his.baseAction.controller.domain.user">
+   seclect * from t_user where uname=#{uanme} and upass=#{upass}
+</seclect>
+</mapper>
